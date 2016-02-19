@@ -1,0 +1,325 @@
+body {
+  font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
+ /* max-width: 600px; */
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+/*  font-size: 1.125em; */
+  color: #333;
+  line-height: 1.5em;
+}
+
+h1, h2, h3 {
+  color: #000;
+}
+h1 {
+  font-size: 2.5em
+}
+
+h2 {
+  font-size: 2em
+}
+
+h3 {
+  font-size: 1.5em
+}
+
+a {
+  text-decoration: none;
+  color: #09f;
+}
+ul {
+    padding: 0; /* per default chrome uses 40px to void hiding the list symbol. Since we never show this anyway...*/
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* Calendar.cljs */
+.clickable {
+    cursor: pointer;
+}
+
+.calendar .day {
+  stroke: #ccc;
+  pointer-events: all;
+}
+
+.calendar .month {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+/* tree.cljs */
+.tree {
+    background-color: #5fc3e6;
+}
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style:none
+}
+.tree ul {
+    margin-left:1em;
+    position:relative
+}
+.tree ul ul {
+    margin-left:.5em
+}
+.tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid
+}
+.tree li {
+    margin:0;
+    padding:0 1em;
+    line-height:1.5em;
+    color:#369;
+    font-weight:700;
+    position:relative
+}
+.tree ul li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0
+}
+.tree ul li:last-child:before {
+    background: #5fc3e6; /*must be the same as the parent background, else the border is visible*/
+    height:auto;
+    top:1em;
+    bottom:0
+}
+.indicator {
+    margin-right:5px;
+}
+
+.tree li a {
+    text-decoration: none;
+    cursor: pointer;
+    color:#F5F5F5;
+}
+.tree li i {
+    cursor: pointer;
+}
+.tree li button, .tree li button:active,{
+    text-decoration: none;
+    color:#369;
+    border:none;
+    background:transparent;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    outline: 0;
+					 }
+.tree li .active{
+    color:#fff;
+    background:#369;
+}
+
+.dygraph-legend .highlight {
+    border: 1px solid black;
+}
+
+svg.wind-rose text {
+    text-anchor: middle;
+}
+svg .axes {
+    stroke: #aaa;
+    stroke-width: 0.5px;
+    fill: none;
+}
+svg.wind-rose .tickmarks {
+    fill: #888;
+}
+svg.wind-rose g.tickmarks>text {
+  font-size: 10px;
+  fill: #888;
+}
+svg.wind-rose .labels text {
+  letter-spacing: 1px;
+  fill: #444;
+  font-size: 11px;
+}
+/* matrix */
+.matrix .background {
+  fill: #eee;
+}
+.matrix line {
+  stroke: #fff;
+  stroke-opacity: .5;
+  shape-rendering: crispEdges;
+}
+
+.directed-graph path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+/* spinning css */
+.glyphicon-spin {
+    -webkit-animation: spin 2000ms infinite linear;
+    animation: spin 2000ms infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+/* anomalies */
+.undecided {
+    border-color: #888;
+    color: #888;
+    opacity: 0.95;
+}
+.false-positive {
+    border-color: #DDD;
+    color: #DDD;
+    opacity: 0.95;
+}    
+
+
+#footer {
+  display: block;
+  position: relative;
+  color: #fff;
+  margin: 20px 0 50px
+}
+
+#footer-top {
+  display: block;
+  position: relative;
+  background-color: #5fc3e6
+}
+#footer-bottom {
+  display: block;
+  position: relative;
+  background-color: #00579d;
+  height: 50px;
+}
+#footer-meta {
+  display: block;
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  height: 16px;
+}
+/* header */
+#header {
+  display: block;
+  position: relative;
+  width: 960px;
+  height: 153px;
+  margin: 0 0;
+}
+#header-logo {
+  display: block;
+  position: absolute;
+  left: -119px;
+  top: 20px;
+  height: 113px;
+  width: 345px;
+  background-color: #fff;
+  -webkit-border-radius: 53px;
+  -moz-border-radius: 53px;
+  -ms-border-radius: 53px;
+  -o-border-radius: 53px;
+  border-radius: 53px
+
+}
+#header-logo h1 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0
+}
+#header-logo h1 a {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  background: url('/images/header-logo.png') 119px center no-repeat
+}
+
+#nav {
+  display: block;
+  position: relative;
+  height: 40px;
+  /*margin: 0 0 20px; */
+  padding: 0;
+}
+#nav>ul>li.flex {
+  margin: 0;
+  width: 100%;
+}
+#nav>ul {
+  height: 40px;
+  box-shadow: 0 0 20px -16px rgba(0,0,0,0.3);
+  display: table;
+  border-collapse: seperate;
+  border-spacing: 1px;
+  margin-left: -1px
+} 
+#nav>ul>li {
+  display: table-cell;
+  background: url('/images/nav-gradient.png') 0 0 repeat-x;
+  white-space: nowrap;
+}
+
+#nav>ul>li>a {
+  cursor:pointer;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 1px 40px 0 20px!important;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #fff;
+  text-decoration: none;
+  line-height: 39px;
+  /*height: 39px;*/
+}
+
+#nav>ul>li.active {
+  background: #5fc3e6 url('/images/nav-gradient.png') 0 -40px repeat-x
+}
+
+.anomaly>span{
+    border-bottom: dashed black 1px;
+}

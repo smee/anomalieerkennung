@@ -1,0 +1,20 @@
+/classes
+/bin
+# Eclipse
+.classpath
+.settings/
+.project
+.externalToolBuilders/
+
+# Maven
+target/
+.idea/
+*.iml
+.nrepl-port
+.repl/
+*#
+.#*
+.lein-*
+*.log
+*~
+.projectile

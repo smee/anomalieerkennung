@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE BIF [
+	<!ELEMENT BIF ( NETWORK )*>
+	      <!ATTLIST BIF VERSION CDATA #REQUIRED>
+	<!ELEMENT NETWORK ( NAME, ( PROPERTY | VARIABLE | DEFINITION )* )>
+	<!ELEMENT NAME (#PCDATA)>
+	<!ELEMENT VARIABLE ( NAME, ( OUTCOME |  PROPERTY )* ) >
+	      <!ATTLIST VARIABLE TYPE (nature|decision|utility) "nature">
+	<!ELEMENT OUTCOME (#PCDATA)>
+	<!ELEMENT DEFINITION ( FOR | GIVEN | TABLE | PROPERTY )* >
+	<!ELEMENT FOR (#PCDATA)>
+	<!ELEMENT GIVEN (#PCDATA)>
+	<!ELEMENT TABLE (#PCDATA)>
+	<!ELEMENT PROPERTY (#PCDATA)>
+]>
+<!--
+  Bayesian network in XMLBIF v0.3 (BayesNet Interchange Format)
+  Produced by SamIam http://reasoning.cs.ucla.edu/samiam
+  Output created 26.02.2016 13:43:08
+-->
+
+<BIF VERSION="0.3">
+<NETWORK>
+  <NAME>bayesiannetwork</NAME>
+
+  <VARIABLE TYPE="nature">
+    <NAME>is_constant</NAME>
+    <OUTCOME>yes</OUTCOME>
+    <OUTCOME>no</OUTCOME>
+    <PROPERTY>position = (423, -74)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>exists_as_predictor</NAME>
+    <OUTCOME>no</OUTCOME>
+    <OUTCOME>few</OUTCOME>
+    <OUTCOME>many</OUTCOME>
+    <PROPERTY>position = (224, -67)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>corr_predictors</NAME>
+    <OUTCOME>none</OUTCOME>
+    <OUTCOME>few</OUTCOME>
+    <OUTCOME>many</OUTCOME>
+    <PROPERTY>position = (754, -88)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>target_candidate</NAME>
+    <OUTCOME>yes</OUTCOME>
+    <OUTCOME>no</OUTCOME>
+    <PROPERTY>position = (516, -217)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>pred_suspicious</NAME>
+    <OUTCOME>yes</OUTCOME>
+    <OUTCOME>no</OUTCOME>
+    <PROPERTY>position = (190, -259)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>has_model</NAME>
+    <OUTCOME>yes</OUTCOME>
+    <OUTCOME>no</OUTCOME>
+    <PROPERTY>position = (676, -339)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>target_divergent</NAME>
+    <OUTCOME>yes</OUTCOME>
+    <OUTCOME>no</OUTCOME>
+    <PROPERTY>position = (592, -76)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>suspicious_candidate</NAME>
+    <OUTCOME>no</OUTCOME>
+    <OUTCOME>few</OUTCOME>
+    <OUTCOME>many</OUTCOME>
+    <OUTCOME>all</OUTCOME>
+    <PROPERTY>position = (46, -58)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>is_reason</NAME>
+    <OUTCOME>is_reason</OUTCOME>
+    <OUTCOME>is_not_reason</OUTCOME>
+    <PROPERTY>position = (345, -390)</PROPERTY>
+  </VARIABLE>
+
+  <DEFINITION>
+    <FOR>is_constant</FOR>
+    <TABLE>0.01 0.99 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>exists_as_predictor</FOR>
+    <TABLE>0.02 0.08 0.9 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>corr_predictors</FOR>
+    <TABLE>0.2 0.5 0.30000000000000004 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>target_candidate</FOR>
+    <GIVEN>corr_predictors</GIVEN>
+    <GIVEN>target_divergent</GIVEN>
+    <GIVEN>is_constant</GIVEN>
+    <TABLE>0.99 0.01 0.99 0.01 0.01 0.99 0.01 0.99 0.99 0.01 0.2 0.8 0.1 0.9 0.01 0.99 0.99 0.01 0.8 0.2 0.6 0.4 0.0 1.0 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>pred_suspicious</FOR>
+    <GIVEN>exists_as_predictor</GIVEN>
+    <GIVEN>suspicious_candidate</GIVEN>
+    <TABLE>0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.1 0.9 0.7 0.30000000000000004 0.9 0.09999999999999998 0.99 0.010000000000000009 0.0 1.0 0.8 0.2 0.95 0.050000000000000044 0.99 0.01 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>has_model</FOR>
+    <TABLE>0.67 0.32999999999999996 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>target_divergent</FOR>
+    <TABLE>0.02 0.98 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>suspicious_candidate</FOR>
+    <TABLE>0.9 0.06 0.03 0.01 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>is_reason</FOR>
+    <GIVEN>pred_suspicious</GIVEN>
+    <GIVEN>target_candidate</GIVEN>
+    <GIVEN>has_model</GIVEN>
+    <TABLE>1.0 0.0 0.9 0.1 0.7 0.3 0.9 0.1 0.8 0.2 0.0 1.0 0.0 1.0 0.0 1.0 </TABLE>
+  </DEFINITION>
+
+</NETWORK>
+</BIF>

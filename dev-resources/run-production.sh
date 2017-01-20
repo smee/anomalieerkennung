@@ -4,4 +4,4 @@ export DEMO=true
 export DEV=false
 export DATABASE_URL=mysql://root@localhost:5029/gt1-db
 export DB_NAME=gt1-db
-java -jar gt1-ui.jar
+java -jar scada-ui.jar

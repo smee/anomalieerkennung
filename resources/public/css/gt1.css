@@ -1,3 +1,91 @@
+/* header */
+#header {
+  display: block;
+  position: relative;
+  width: 960px;
+  height: 153px;
+  margin: 0 0;
+}
+#header-logo {
+  display: block;
+  position: absolute;
+  left: -119px;
+  top: 20px;
+  height: 113px;
+  width: 345px;
+  background-color: #fff;
+  -webkit-border-radius: 53px;
+  -moz-border-radius: 53px;
+  -ms-border-radius: 53px;
+  -o-border-radius: 53px;
+  border-radius: 53px
+
+}
+#header-logo h1 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0
+}
+#header-logo h1 a {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  background: url('/images/header-logo.png') 119px center no-repeat
+}
+
+#nav {
+  display: block;
+  position: relative;
+  height: 40px;
+  /*margin: 0 0 20px; */
+  padding: 0;
+}
+#nav>ul>li.flex {
+  margin: 0;
+  width: 100%;
+}
+#nav>ul {
+  height: 40px;
+  box-shadow: 0 0 20px -16px rgba(0,0,0,0.3);
+  display: table;
+  border-collapse: seperate;
+  border-spacing: 1px;
+  margin-left: -1px
+} 
+#nav>ul>li {
+  display: table-cell;
+  background: url('/images/nav-gradient.png') 0 0 repeat-x;
+  white-space: nowrap;
+}
+
+#nav>ul>li>a {
+  cursor:pointer;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 1px 40px 0 20px!important;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #fff;
+  text-decoration: none;
+  line-height: 39px;
+  /*height: 39px;*/
+}
+
+#nav>ul>li.active {
+  background: #f9f9f9 url('/images/nav-gradient.png') 0 -40px repeat-x
+}
 .bg {
     background:#3a5b78 url('/images/nordsee-background.jpg') center center no-repeat fixed;
 }

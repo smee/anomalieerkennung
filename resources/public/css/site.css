@@ -1,5 +1,5 @@
 body {
-  font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
+ 
  /* max-width: 600px; */
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
@@ -31,6 +31,10 @@ ul {
     padding: 0; /* per default chrome uses 40px to void hiding the list symbol. Since we never show this anyway...*/
 }
 
+.panel-heading h1,h2,h3,h4,h5,h5 {
+    margin: 0;
+}
+
 a:hover {
   text-decoration: underline;
 }
@@ -52,7 +56,7 @@ a:hover {
 
 /* tree.cljs */
 .tree {
-    background-color: #5fc3e6;
+        
 }
 .tree, .tree ul {
     margin:0;
@@ -80,8 +84,6 @@ a:hover {
     margin:0;
     padding:0 1em;
     line-height:1.5em;
-    color:#369;
-    font-weight:700;
     position:relative
 }
 .tree ul li:before {
@@ -96,7 +98,7 @@ a:hover {
     left:0
 }
 .tree ul li:last-child:before {
-    background: #5fc3e6; /*must be the same as the parent background, else the border is visible*/
+    background: #FFF; /* FIXME must be the same as the parent background, else the border is visible*/
     height:auto;
     top:1em;
     bottom:0
@@ -105,10 +107,8 @@ a:hover {
     margin-right:5px;
 }
 
-.tree li a {
-    text-decoration: none;
+.tree li span {
     cursor: pointer;
-    color:#F5F5F5;
 }
 .tree li i {
     cursor: pointer;
@@ -213,11 +213,6 @@ svg.wind-rose .labels text {
   margin: 20px 0 50px
 }
 
-#footer-top {
-  display: block;
-  position: relative;
-  background-color: #5fc3e6
-}
 #footer-bottom {
   display: block;
   position: relative;
@@ -231,95 +226,91 @@ svg.wind-rose .labels text {
   left: 20px;
   height: 16px;
 }
-/* header */
-#header {
-  display: block;
-  position: relative;
-  width: 960px;
-  height: 153px;
-  margin: 0 0;
-}
-#header-logo {
-  display: block;
-  position: absolute;
-  left: -119px;
-  top: 20px;
-  height: 113px;
-  width: 345px;
-  background-color: #fff;
-  -webkit-border-radius: 53px;
-  -moz-border-radius: 53px;
-  -ms-border-radius: 53px;
-  -o-border-radius: 53px;
-  border-radius: 53px
 
-}
-#header-logo h1 {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 0
-}
-#header-logo h1 a {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  background: url('/images/header-logo.png') 119px center no-repeat
-}
 
-#nav {
-  display: block;
-  position: relative;
-  height: 40px;
-  /*margin: 0 0 20px; */
-  padding: 0;
-}
-#nav>ul>li.flex {
-  margin: 0;
-  width: 100%;
-}
-#nav>ul {
-  height: 40px;
-  box-shadow: 0 0 20px -16px rgba(0,0,0,0.3);
-  display: table;
-  border-collapse: seperate;
-  border-spacing: 1px;
-  margin-left: -1px
-} 
-#nav>ul>li {
-  display: table-cell;
-  background: url('/images/nav-gradient.png') 0 0 repeat-x;
-  white-space: nowrap;
-}
-
-#nav>ul>li>a {
-  cursor:pointer;
-  display: block;
-  position: relative;
-  margin: 0;
-  padding: 1px 40px 0 20px!important;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  color: #fff;
-  text-decoration: none;
-  line-height: 39px;
-  /*height: 39px;*/
-}
-
-#nav>ul>li.active {
-  background: #5fc3e6 url('/images/nav-gradient.png') 0 -40px repeat-x
-}
-
-.anomaly>span{
+.anomaly>span {
     border-bottom: dashed black 1px;
+}
+.popover {
+    max-width: none;
+    width: intrinsic; /* Safari/WebKit uses a non-standard name */
+    width: -moz-max-content; /* Firefox/Gecko */
+    width: -webkit-max-content; /* Chrome */
+}
+
+.shadowed {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.16), 0 3px 10px rgba(0,0,0,0.23);
+    border-radius: 2px;
+    padding: 10px;
+    margin: 0 10px 10px 0;
+}
+
+/* spinner animation */
+.spinningCircle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0);
+    border-top-color: 4px solid #7fc4d1;
+    border-right-color: 4px solid #7fc4d1;
+    -webkit-animation: single2 4s infinite linear;
+    animation: single2 4s infinite linear;
+}
+
+@-webkit-keyframes single2 {
+    0% {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	border-top-color: #7fc4d1;
+	border-right-color: #7fc4d1;
+    }
+    50% {
+	border-top-color: #1f4f58;
+	border-right-color: #1f4f58;
+    }
+    100% {
+	-webkit-transform: rotate(720deg);
+	transform: rotate(720deg);
+	border-top-color: #7fc4d1;
+	border-right-color: #7fc4d1;
+    }
+}
+
+@keyframes single2 {
+    0% {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	border-top-color: #7fc4d1;
+	border-right-color: #7fc4d1;
+    }
+    50% {
+	border-top-color: #1f4f58;
+	border-right-color: #1f4f58;
+    }
+    100% {
+	-webkit-transform: rotate(720deg);
+	transform: rotate(720deg);
+	border-top-color: #7fc4d1;
+	border-right-color: #7fc4d1;
+    }
+}
+
+/* chart specifics */
+.lineChart canvas {
+  outline: none !important; /* do not render border around canvas with focus */
+}
+
+table.re-frame-datatable thead th.sorted-by {
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 20px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAQAAADYWf5HAAAAkElEQVQoz7X QMQ5AQBCF4dWQSJxC5wwax1Cq1e7BAdxD5SL+Tq/QCM1oNiJidwox0355mXnG/DrEtIQ6azioNZQxI0ykPhTQIwhCR+BmBYtlK7kLJYwWCcJA9M4qdrZrd8pPjZWPtOqdRQy320YSV17OatFC4euts6z39GYMKRPCTKY9UnPQ6P+GtMRfGtPnBCiqhAeJPmkqAAAAAElFTkSuQmCC');
+}
+
+table.re-frame-datatable thead th.sorted-by.asc {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAZ0lEQVQ4y2NgGLKgquEuFxBPAGI2ahhWCsS/gDibUoO0gPgxEP8H4ttArEyuQYxAPBdqEAxPBImTY5gjEL9DM+wTENuQahAvEO9DMwiGdwAxOymGJQLxTyD+jgWDxCMZRsEoGAVoAADeemwtPcZI2wAAAABJRU5ErkJggg==');
+}
+
+table.re-frame-datatable thead th.sorted-by.desc {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAZUlEQVQ4y2NgGAWjYBSggaqGu5FA/BOIv2PBIPFEUgxjB+IdQPwfC94HxLykus4GiD+hGfQOiB3J8SojEE9EM2wuSJzcsFMG4ttQgx4DsRalkZENxL+AuJQaMcsGxBOAmGvopk8AVz1sLZgg0bsAAAAASUVORK5CYII= ');
 }

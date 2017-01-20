@@ -1,0 +1,24 @@
+* Algorithms
+- bin all data to learn lasso models for different loads (low/medium/high wind)
+- piecewise models per sensor to approximate pairwise nonlinear relationships?
+- somehow deduplicate calculations in fading statistics (no need to recount values, averages for all correlations,variances,regressions)
+- mutable state for ingesting data? most of the CPU time seems to get spent in comparing map entries, updating statistics
+- fading statstics histogram: PDF, JS divergence
+- power curve reconstruction: multiple confidence intervals/histograms per bin to find smaller drifts than just big deviations outside of prediction interval
+- learn models for different regimes (seasons, wind load, temperature outside)
+
+* UI
+- Material UI?
+  - too slow/inflexible:  https://github.com/madvas/cljs-react-material-ui
+  - better: use pure css, write own component!
+  - flexboxgrid as CSS only grid framework https://raw.githubusercontent.com/kristoferjoseph/flexboxgrid/master/dist/flexboxgrid.css
+- generic table pagination
+
+* Application
+- Users, Roles, Permissions, Visibility
+- Concept: Park
+- heterogenous wind plants: how to visualize common/distinct sensor trees?
+- handle different sensor data: averages only up to min/max/avg/sd tuples
+  - DB queries
+- generic ETL pipeline
+- refine concept for generic algorithms: visualize different types, generic state persistence
